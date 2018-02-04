@@ -48,7 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnswerBox\Base\IAnswerBox.cs" />
-    <Compile Include="AnswerBox\Base\ImageProvider.cs" />
     <Compile Include="AnswerBox\Base\Solution.cs" />
     <Compile Include="AnswerBox\IntegerOnly.cs">
       <SubType>UserControl</SubType>
@@ -67,7 +66,6 @@
     <Compile Include="Cards\CardGroup\Year2018\Card_003.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_002.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_001.cs" />
-    <Compile Include="Cards\Base\IABUCard.cs" />
     <Compile Include="FrmMainView.cs">
       <SubType>Form</SubType>
     </Compile>
