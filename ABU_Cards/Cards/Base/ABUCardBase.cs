@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace ABU_Cards.Cards.Base
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ABUCardBase
     {
 
@@ -33,7 +36,7 @@ namespace ABU_Cards.Cards.Base
         /// <summary>
         /// Richtige Antwort pro Kaertchen wird hier angegeben
         /// </summary>
-        public virtual Solution CorrectAnswer() {
+        public virtual Solution CorrectSolution() {
             return new Solution();
         }
 
@@ -47,7 +50,7 @@ namespace ABU_Cards.Cards.Base
         /// <summary>
         ///
         /// </summary>
-        public virtual Control CardAnswerBox { get { return null; } }
+        public virtual IAnswerBox CardAnswerBox { get { return null; } }
 
     }
 }

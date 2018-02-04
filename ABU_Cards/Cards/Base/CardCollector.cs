@@ -30,7 +30,7 @@ namespace ABU_Cards.Cards.Base
                 objects.Add((ABUCardBase)Activator.CreateInstance(type));
             }
 
-            objects.Sort();
+            //objects.Sort();
             this.cardCollection = objects;
         }
 

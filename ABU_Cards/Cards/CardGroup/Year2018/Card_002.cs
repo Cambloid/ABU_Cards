@@ -12,7 +12,7 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
     /// <summary>
     /// 
     /// </summary>
-    public class Card_001 : ABUCardBase
+    public class Card_002 : ABUCardBase
     {
         /// <summary>
         /// 
@@ -21,7 +21,7 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
         {
             get
             {
-                return 1; 
+                return 2; 
             }
         }
 
@@ -33,8 +33,8 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
         {
             StringBuilder build = new StringBuilder();
 
-            build.AppendLine("Haben Sie als 20-jährige/r Arbeitnehmer/in");
-            build.AppendLine("Anspruch auf 5 Wochen Ferien pro Jahr?");
+            build.AppendLine("Müssen Sie am Ende der Lehre Ihren");
+            build.AppendLine("Lehrvertrag kündigen?");
 
             return build.ToString();
         }
@@ -45,7 +45,7 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
         /// <returns></returns>
         public override Solution CorrectSolution() 
         {
-            return new Solution(new List<dynamic> { true, false });
+            return new Solution(new List<dynamic> { false, true });
         }
         
         /// <summary>

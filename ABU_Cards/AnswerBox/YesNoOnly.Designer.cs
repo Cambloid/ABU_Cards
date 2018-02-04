@@ -28,50 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.chkNein = new System.Windows.Forms.CheckBox();
-            this.chkJa = new System.Windows.Forms.CheckBox();
+            this.chkJa = new MaterialSkin.Controls.MaterialCheckBox();
+            this.chkNein = new MaterialSkin.Controls.MaterialCheckBox();
             this.SuspendLayout();
+            // 
+            // chkJa
+            // 
+            this.chkJa.AutoSize = true;
+            this.chkJa.Depth = 0;
+            this.chkJa.Font = new System.Drawing.Font("Roboto", 10F);
+            this.chkJa.Location = new System.Drawing.Point(60, 18);
+            this.chkJa.Margin = new System.Windows.Forms.Padding(0);
+            this.chkJa.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.chkJa.MouseState = MaterialSkin.MouseState.HOVER;
+            this.chkJa.Name = "chkJa";
+            this.chkJa.Ripple = true;
+            this.chkJa.Size = new System.Drawing.Size(45, 30);
+            this.chkJa.TabIndex = 4;
+            this.chkJa.Text = "Ja";
+            this.chkJa.UseVisualStyleBackColor = true;
             // 
             // chkNein
             // 
             this.chkNein.AutoSize = true;
-            this.chkNein.Location = new System.Drawing.Point(105, 77);
+            this.chkNein.Depth = 0;
+            this.chkNein.Font = new System.Drawing.Font("Roboto", 10F);
+            this.chkNein.Location = new System.Drawing.Point(60, 48);
+            this.chkNein.Margin = new System.Windows.Forms.Padding(0);
+            this.chkNein.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.chkNein.MouseState = MaterialSkin.MouseState.HOVER;
             this.chkNein.Name = "chkNein";
-            this.chkNein.Size = new System.Drawing.Size(67, 24);
-            this.chkNein.TabIndex = 2;
+            this.chkNein.Ripple = true;
+            this.chkNein.Size = new System.Drawing.Size(58, 30);
+            this.chkNein.TabIndex = 5;
             this.chkNein.Text = "Nein";
             this.chkNein.UseVisualStyleBackColor = true;
             // 
-            // chkJa
-            // 
-            this.chkJa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkJa.AutoSize = true;
-            this.chkJa.BackColor = System.Drawing.Color.Transparent;
-            this.chkJa.Location = new System.Drawing.Point(105, 47);
-            this.chkJa.Name = "chkJa";
-            this.chkJa.Size = new System.Drawing.Size(52, 24);
-            this.chkJa.TabIndex = 3;
-            this.chkJa.Text = "Ja";
-            this.chkJa.UseVisualStyleBackColor = false;
-            // 
             // YesNoOnly
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.chkJa);
             this.Controls.Add(this.chkNein);
+            this.Controls.Add(this.chkJa);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "YesNoOnly";
-            this.Size = new System.Drawing.Size(270, 148);
+            this.Size = new System.Drawing.Size(180, 96);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.CheckBox chkNein;
-        private System.Windows.Forms.CheckBox chkJa;
+        private MaterialSkin.Controls.MaterialCheckBox chkJa;
+        private MaterialSkin.Controls.MaterialCheckBox chkNein;
     }
 }
