@@ -34,5 +34,7 @@ namespace ABU_Cards.AnswerBox.Base
         /// </summary>
         /// <returns></returns>
         Control GetControl();
+
+
     }
 }

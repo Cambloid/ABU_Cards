@@ -48,7 +48,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnswerBox\Base\IAnswerBox.cs" />
+    <Compile Include="AnswerBox\Base\ImageProvider.cs" />
     <Compile Include="AnswerBox\Base\Solution.cs" />
+    <Compile Include="AnswerBox\IntegerOnly.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AnswerBox\IntegerOnly.Designer.cs">
+      <DependentUpon>IntegerOnly.cs</DependentUpon>
+    </Compile>
     <Compile Include="AnswerBox\YesNoOnly.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -57,15 +64,10 @@
     </Compile>
     <Compile Include="Cards\Base\ABUCardBase.cs" />
     <Compile Include="Cards\Base\CardCollector.cs" />
+    <Compile Include="Cards\CardGroup\Year2018\Card_003.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_002.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_001.cs" />
     <Compile Include="Cards\Base\IABUCard.cs" />
-    <Compile Include="FrmCorrectSolution.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCorrectSolution.Designer.cs">
-      <DependentUpon>FrmCorrectSolution.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmMainView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,11 +76,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AnswerBox\IntegerOnly.resx">
+      <DependentUpon>IntegerOnly.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AnswerBox\YesNoOnly.resx">
       <DependentUpon>YesNoOnly.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCorrectSolution.resx">
-      <DependentUpon>FrmCorrectSolution.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMainView.resx">
       <DependentUpon>FrmMainView.cs</DependentUpon>
@@ -111,6 +113,10 @@
       <Project>{8eb7611b-68cd-4b8b-987a-11717e2b250c}</Project>
       <Name>MaterialSkin</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\ic_check_black_48dp_1x.png" />
+    <Content Include="Images\ic_close_black_48dp_1x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

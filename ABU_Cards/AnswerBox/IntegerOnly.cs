@@ -14,12 +14,12 @@ namespace ABU_Cards.AnswerBox
     /// <summary>
     /// 
     /// </summary>
-    public partial class YesNoOnly : UserControl, IAnswerBox
+    public partial class IntegerOnly : UserControl, IAnswerBox
     {
         /// <summary>
         /// 
         /// </summary>
-        public YesNoOnly()
+        public IntegerOnly()
         {
             InitializeComponent();
         }
@@ -31,12 +31,11 @@ namespace ABU_Cards.AnswerBox
         {
             get
             {
-                return new Solution(new List<dynamic> { this.chkJa.Checked, this.chkNein.Checked });
+                return new Solution(new List<dynamic> { this.convertIntFromString(this.txtInput.Text) });
             }
             set
             {
-                this.chkJa.Checked   = value.Answers[0];
-                this.chkNein.Checked = value.Answers[1];
+                this.txtInput.Text   = value.Answers[0].ToString();
             }
         }
 
@@ -48,17 +47,9 @@ namespace ABU_Cards.AnswerBox
         {
             if(correctSolution.Answers[0].Equals(this.Answer.Answers[0]))
             {
-                picJa.Image = new Bitmap(global::ABU_Cards.Properties.Resources.ic_check_black_48dp_1x);
+                picCheck.Image = new Bitmap(global::ABU_Cards.Properties.Resources.ic_check_black_48dp_1x);
             } else {
-                picJa.Image = new Bitmap(global::ABU_Cards.Properties.Resources.ic_close_black_48dp_1x);
-            }
-
-            if (correctSolution.Answers[1].Equals(this.Answer.Answers[1]))
-            {
-                picNein.Image = new Bitmap(global::ABU_Cards.Properties.Resources.ic_check_black_48dp_1x);
-            } else
-            {
-                picNein.Image = new Bitmap(global::ABU_Cards.Properties.Resources.ic_close_black_48dp_1x);
+                picCheck.Image = new Bitmap(global::ABU_Cards.Properties.Resources.ic_close_black_48dp_1x);
             }
         }
 
@@ -76,10 +67,16 @@ namespace ABU_Cards.AnswerBox
         /// </summary>
         public void ResetBox()
         {
-            this.picJa.Image = null;
-            this.picNein.Image = null;
-            this.chkJa.Checked = false;
-            this.chkNein.Checked = false;
+            this.txtInput.Clear();
+        }
+
+        private int convertIntFromString(string input)
+        {
+            if(string.IsNullOrEmpty(input))
+            {
+                return 0;
+            }
+            return Convert.ToInt32(input);
         }
 
     }

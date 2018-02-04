@@ -20,9 +20,13 @@ namespace ABU_Cards
     public partial class FrmMainView : MaterialForm
     {
         private CardCollector cards;
-        private ABUCardBase currentCard = null;
-        private Dictionary<ABUCardBase, Solution> userSuggestedSolution = null;
         private IAnswerBox currentAnswerBox = null;
+        private Dictionary<ABUCardBase, Solution> userSuggestedSolution = null;
+
+        private int currCardIndex = 0;
+        private bool initDone = false;
+
+        private MaterialSkinManager manager = null;
 
         /// <summary>
         /// 
@@ -36,11 +40,13 @@ namespace ABU_Cards
             this.Shown += new System.EventHandler(this.FrmMainView_Shown);
             this.lsvCards.ItemSelectionChanged += lstCards_ItemSelectionChanged;
             this.btnNext.Click += btnNext_Click;
+            this.btnSolution.Click += btnSolution_Click;
+            this.btnCheck.Click += btnCheck_Click;
 
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
+            this.manager = MaterialSkinManager.Instance;
+            this.manager.AddFormToManage(this);
+            this.manager.Theme = MaterialSkinManager.Themes.LIGHT;
+            this.manager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
             
         }
 
@@ -49,26 +55,29 @@ namespace ABU_Cards
         /// </summary>
         private void fillCollections()
         {
-            string cardName   = string.Empty;
-            string cardIndex  = string.Empty;
+
+
+            string cardName = string.Empty;
+            string cardIndex = string.Empty;
             ListViewItem item = null;
+
             foreach (ABUCardBase card in this.cards.CardCollection)
             {
-
                 this.userSuggestedSolution.Add(card, null);
 
                 cardIndex = card.CardIndex.ToString();
-                cardName  = "Karte " + cardIndex;
-                
+                cardName = "Karte " + cardIndex;
+
                 item = new ListViewItem();
 
-                item.Tag       = card;
-                item.Text      = cardName;
+                item.Tag = card.CardIndex;
+                item.Text = cardName;
                 item.BackColor = Color.Red;
-                
-                this.lsvCards.Items.Add(item);
 
+                this.lsvCards.Items.Add(item);
             }
+
+
         }
 
         /// <summary>
@@ -81,16 +90,15 @@ namespace ABU_Cards
             this.lblText.Text = string.Empty;
             this.lblText.Text = cardToPresent.Description();
             this.btnCheck.Enabled = cardToPresent.CanBeChecked;
-
-            // Load Last suggested Answer
-            this.loadLastSuggestedUserAnswer(cardToPresent);
             
             // Fill Globals
-            this.currentCard = cardToPresent;
             this.currentAnswerBox = cardToPresent.CardAnswerBox;
             
             this.pnlAnswer.Controls.Clear();
             this.pnlAnswer.Controls.Add(this.currentAnswerBox.GetControl());
+
+            // Load Last suggested Answer
+            this.loadLastSuggestedUserAnswer(cardToPresent);
         }
 
         /// <summary>
@@ -110,30 +118,19 @@ namespace ABU_Cards
         /// </summary>
         private void loadNextCard()
         {
-            if (this.lsvCards.SelectedItems.Count == 0)
-            {
+            if (this.lsvCards.SelectedItems.Count == 0) {
                 this.lsvCards.Items[0].Selected = true;
                 return;
             }
 
             int rowCount = this.lsvCards.Items.Count;
-            ListViewItem item = this.lsvCards.SelectedItems[0];
-            int idx = 0;
-            if (item != null)
-            {
-                idx = item.Index;
-            }
-
-            if (idx >= rowCount - 1)
-            {
+            if (this.currCardIndex >= rowCount - 1) {
                 this.lsvCards.Items[0].Selected = true;
 
-            }
-            else
-            {
-                this.lsvCards.Items[idx + 1].Selected = true;
-            }
+            } else {
+                this.lsvCards.Items[++this.currCardIndex].Selected = true;
 
+            }
         }
 
         /// <summary>
@@ -146,9 +143,22 @@ namespace ABU_Cards
             this.cards.CollectAllCards();
             this.fillCollections();
 
+            this.initDone = true;
+
             this.loadNextCard();
+
         }
         
+        /// <summary>
+        /// Instanz der einzelnen Karten immer vom CardCollector holen
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        private ABUCardBase getCardByCardIndex(int index) {
+            ABUCardBase card = this.cards.CardCollection.Find(x => x.CardIndex == index);
+            return card;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -156,10 +166,14 @@ namespace ABU_Cards
         /// <param name="e"></param>
         private void lstCards_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            ListViewItem item = e.Item;
-            if (item != null)
+            if (this.initDone)
             {
-                this.presentCard((ABUCardBase)item.Tag);
+                ListViewItem item = e.Item;
+                if (item != null && item.Tag != null)
+                {
+                    this.currCardIndex = (int)item.Tag;
+                    this.presentCard(this.getCardByCardIndex(this.currCardIndex));
+                }
             }
         }
         
@@ -174,12 +188,29 @@ namespace ABU_Cards
             Solution sol = this.currentAnswerBox.Answer;
             if (sol != null)
             {
-                this.userSuggestedSolution[this.currentCard] = sol;
+                this.userSuggestedSolution[this.getCardByCardIndex(this.currCardIndex)] = sol;
             }
-
             this.loadNextCard();
         }
-
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSolution_Click(object sender, EventArgs e)
+        {
+            this.currentAnswerBox.Answer = this.getCardByCardIndex(this.currCardIndex).CorrectSolution();
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCheck_Click(object sender, EventArgs e) {
+            this.currentAnswerBox.CheckAnswer(this.getCardByCardIndex(this.currCardIndex).CorrectSolution());
+        }
 
     }
 }
