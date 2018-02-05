@@ -55,6 +55,12 @@
     <Compile Include="AnswerBox\IntegerOnly.Designer.cs">
       <DependentUpon>IntegerOnly.cs</DependentUpon>
     </Compile>
+    <Compile Include="AnswerBox\CheckBoxStackVertical.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AnswerBox\CheckBoxStackVertical.Designer.cs">
+      <DependentUpon>CheckBoxStackVertical.cs</DependentUpon>
+    </Compile>
     <Compile Include="AnswerBox\YesNoOnly.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -63,6 +69,7 @@
     </Compile>
     <Compile Include="Cards\Base\ABUCardBase.cs" />
     <Compile Include="Cards\Base\CardCollector.cs" />
+    <Compile Include="Cards\CardGroup\Year2018\Card_004.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_003.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_002.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_001.cs" />
@@ -76,6 +83,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AnswerBox\IntegerOnly.resx">
       <DependentUpon>IntegerOnly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnswerBox\CheckBoxStackVertical.resx">
+      <DependentUpon>CheckBoxStackVertical.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AnswerBox\YesNoOnly.resx">
       <DependentUpon>YesNoOnly.cs</DependentUpon>
