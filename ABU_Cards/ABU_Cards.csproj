@@ -61,6 +61,12 @@
     <Compile Include="AnswerBox\CheckBoxStackVertical.Designer.cs">
       <DependentUpon>CheckBoxStackVertical.cs</DependentUpon>
     </Compile>
+    <Compile Include="AnswerBox\MultilineTextInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AnswerBox\MultilineTextInput.Designer.cs">
+      <DependentUpon>MultilineTextInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="AnswerBox\YesNoOnly.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     </Compile>
     <Compile Include="Cards\Base\ABUCardBase.cs" />
     <Compile Include="Cards\Base\CardCollector.cs" />
+    <Compile Include="Cards\CardGroup\Year2018\Card_008.cs" />
+    <Compile Include="Cards\CardGroup\Year2018\Card_006.cs" />
+    <Compile Include="Cards\CardGroup\Year2018\Card_005.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_004.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_003.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_002.cs" />
@@ -86,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AnswerBox\CheckBoxStackVertical.resx">
       <DependentUpon>CheckBoxStackVertical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnswerBox\MultilineTextInput.resx">
+      <DependentUpon>MultilineTextInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AnswerBox\YesNoOnly.resx">
       <DependentUpon>YesNoOnly.cs</DependentUpon>
