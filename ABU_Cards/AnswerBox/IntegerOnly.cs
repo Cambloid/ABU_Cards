@@ -72,11 +72,15 @@ namespace ABU_Cards.AnswerBox
 
         private int convertIntFromString(string input)
         {
-            if(string.IsNullOrEmpty(input))
-            {
-                return 0;
+            int result = 0;
+            try {
+                result = Convert.ToInt32(input);
+
+            } catch (Exception ex) {
+                Console.WriteLine(ex.ToString());
+
             }
-            return Convert.ToInt32(input);
+            return result;
         }
 
     }

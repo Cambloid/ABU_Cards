@@ -118,19 +118,30 @@ namespace ABU_Cards
         /// </summary>
         private void loadNextCard()
         {
-            if (this.lsvCards.SelectedItems.Count == 0) {
-                this.lsvCards.Items[0].Selected = true;
-                return;
+            if(this.currCardIndex >= this.cards.CardCollection.Count)
+            {
+                this.currCardIndex = 1;
+            } else
+            {
+                this.currCardIndex++;
             }
 
-            int rowCount = this.lsvCards.Items.Count;
-            if (this.currCardIndex >= rowCount - 1) {
-                this.lsvCards.Items[0].Selected = true;
+            this.presentCard(this.getCardByCardIndex(this.currCardIndex));
 
-            } else {
-                this.lsvCards.Items[++this.currCardIndex].Selected = true;
+            //if (this.lsvCards.SelectedItems.Count == 0) {
+            //    this.lsvCards.Items[0].Selected = true;
+            //    return;
+            //}
 
-            }
+            //int rowCount = this.lsvCards.Items.Count;
+            //int currLstIndex = this.lsvCards.SelectedItems[0].Index;
+            //if (currLstIndex >= rowCount - 1) {
+            //    this.lsvCards.Items[0].Selected = true;
+
+            //} else {
+            //    this.lsvCards.Items[currLstIndex + 1].Selected = true;
+
+            //}
         }
 
         /// <summary>

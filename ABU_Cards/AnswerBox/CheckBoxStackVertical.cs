@@ -55,18 +55,28 @@ namespace ABU_Cards.AnswerBox
         {
             this.picPattern.Visible = false;
             this.chkPattern.Visible = false;
+            this.lblPattern.Visible = false;
 
             MaterialCheckBox chk = null;
             PictureBox box = null;
+            MaterialLabel label = null;
             for (int i = 0; i < count; i++)
             {
                 chk = new MaterialCheckBox();
+                chk.Size = new Size(24, 24);
                 chk.Location = new Point(this.chkPattern.Location.X, this.chkPattern.Location.Y + ((this.chkPattern.Height - 5) * i));
-                chk.Text = this.checkBoxText[i];
                 this.Controls.Add(chk);
 
+                label = new MaterialLabel();
+                label.Size = new Size(100, 24);
+                label.Location = new Point(this.lblPattern.Location.X, chk.Location.Y - 1);
+                label.Text = this.checkBoxText[i];
+                this.Controls.Add(label);
+
                 box = new PictureBox();
-                box.Location = new Point(this.picPattern.Location.X, this.picPattern.Location.Y + ((this.picPattern.Height - 5) * i));
+                box.Location = new Point(this.picPattern.Location.X, chk.Location.Y - 2);
+                box.Size = new Size(25, 25);
+                box.SizeMode = PictureBoxSizeMode.StretchImage;
                 this.Controls.Add(box);
 
                 this.checkBoxCollection.Add(chk);
