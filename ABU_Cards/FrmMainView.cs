@@ -90,7 +90,9 @@ namespace ABU_Cards
             this.lblText.Text = string.Empty;
             this.lblText.Text = cardToPresent.Description();
             this.btnCheck.Enabled = cardToPresent.CanBeChecked;
+            this.Text = "ABU Kärtchen  (" + cardToPresent.CardIndex + ")";
             
+
             // Fill Globals
             this.currentAnswerBox = cardToPresent.CardAnswerBox;
             
@@ -99,6 +101,8 @@ namespace ABU_Cards
 
             // Load Last suggested Answer
             this.loadLastSuggestedUserAnswer(cardToPresent);
+
+            this.Refresh();
         }
 
         /// <summary>

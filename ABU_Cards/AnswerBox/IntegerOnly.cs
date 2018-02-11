@@ -23,7 +23,16 @@ namespace ABU_Cards.AnswerBox
         {
             InitializeComponent();
         }
-        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public IntegerOnly(string text)
+        {
+            InitializeComponent();
+            this.lblText.Text = text;
+        }
+
         /// <summary>
         /// 
         /// </summary>

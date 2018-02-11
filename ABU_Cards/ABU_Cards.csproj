@@ -67,6 +67,12 @@
     <Compile Include="AnswerBox\MultilineTextInput.Designer.cs">
       <DependentUpon>MultilineTextInput.cs</DependentUpon>
     </Compile>
+    <Compile Include="AnswerBox\YesNoTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AnswerBox\YesNoTable.Designer.cs">
+      <DependentUpon>YesNoTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="AnswerBox\YesNoOnly.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -75,6 +81,7 @@
     </Compile>
     <Compile Include="Cards\Base\ABUCardBase.cs" />
     <Compile Include="Cards\Base\CardCollector.cs" />
+    <Compile Include="Cards\CardGroup\Year2018\Card_007.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_008.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_006.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_005.cs" />
@@ -98,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AnswerBox\MultilineTextInput.resx">
       <DependentUpon>MultilineTextInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnswerBox\YesNoTable.resx">
+      <DependentUpon>YesNoTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AnswerBox\YesNoOnly.resx">
       <DependentUpon>YesNoOnly.cs</DependentUpon>
