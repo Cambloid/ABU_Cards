@@ -29,7 +29,9 @@ namespace ABU_Cards.Cards.Base
                 objects.Add((ABUCardBase)Activator.CreateInstance(type));
             }
 
-            //objects.Sort();
+            // Liste der Karten Numerisch sortieren
+            objects = objects.OrderBy(x => x.CardIndex).ToList();
+
             this.cardCollection = objects;
         }
 

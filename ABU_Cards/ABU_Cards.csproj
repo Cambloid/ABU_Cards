@@ -49,6 +49,12 @@
   <ItemGroup>
     <Compile Include="AnswerBox\Base\IAnswerBox.cs" />
     <Compile Include="AnswerBox\Base\Solution.cs" />
+    <Compile Include="AnswerBox\TextBoxStackVertical.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AnswerBox\TextBoxStackVertical.Designer.cs">
+      <DependentUpon>TextBoxStackVertical.cs</DependentUpon>
+    </Compile>
     <Compile Include="AnswerBox\IntegerOnly.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -81,6 +87,7 @@
     </Compile>
     <Compile Include="Cards\Base\ABUCardBase.cs" />
     <Compile Include="Cards\Base\CardCollector.cs" />
+    <Compile Include="Cards\CardGroup\Year2018\Card_010.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_009.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_007.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_008.cs" />
@@ -98,6 +105,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AnswerBox\TextBoxStackVertical.resx">
+      <DependentUpon>TextBoxStackVertical.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AnswerBox\IntegerOnly.resx">
       <DependentUpon>IntegerOnly.cs</DependentUpon>
     </EmbeddedResource>

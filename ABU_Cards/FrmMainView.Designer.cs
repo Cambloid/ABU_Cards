@@ -40,7 +40,7 @@
             // pnlAnswer
             // 
             this.pnlAnswer.Location = new System.Drawing.Point(182, 177);
-            this.pnlAnswer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlAnswer.Margin = new System.Windows.Forms.Padding(2);
             this.pnlAnswer.Name = "pnlAnswer";
             this.pnlAnswer.Size = new System.Drawing.Size(430, 135);
             this.pnlAnswer.TabIndex = 2;
@@ -62,7 +62,6 @@
             this.lsvCards.Name = "lsvCards";
             this.lsvCards.OwnerDraw = true;
             this.lsvCards.Size = new System.Drawing.Size(176, 287);
-            this.lsvCards.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.lsvCards.TabIndex = 6;
             this.lsvCards.UseCompatibleStateImageBehavior = false;
             this.lsvCards.View = System.Windows.Forms.View.Details;
@@ -143,7 +142,7 @@
             this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.btnSolution);
             this.Controls.Add(this.pnlAnswer);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "FrmMainView";
             this.Text = "ABU Kärtchen";
