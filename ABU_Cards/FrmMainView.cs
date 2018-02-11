@@ -120,19 +120,23 @@ namespace ABU_Cards
         /// </summary>
         private void loadNextCard()
         {
-            if (this.lsvCards.SelectedItems.Count == 0) {
-                this.lsvCards.Items[0].Selected = true;
-                return;
-            }
+            //if (this.lsvCards.SelectedItems.Count == 0) {
+            //    this.lsvCards.Items[0].Selected = true;
+            //    return;
+            //}
 
-            int rowCount = this.lsvCards.Items.Count;
-            if (this.currCardIndex >= rowCount - 1) {
-                this.lsvCards.Items[0].Selected = true;
+            this.currCardIndex = (this.currCardIndex % this.cards.CardCollection.Count()) + 1;
+            this.lsvCards.Items[this.currCardIndex - 1].Selected = true;
 
-            } else {
-                this.lsvCards.Items[++this.currCardIndex].Selected = true;
 
-            }
+            //int rowCount = this.lsvCards.Items.Count;
+            //if (this.currCardIndex >= rowCount - 1) {
+            //    this.lsvCards.Items[0].Selected = true;
+
+            //} else {
+            //    this.lsvCards.Items[++this.currCardIndex].Selected = true;
+
+            //}
         }
 
         /// <summary>

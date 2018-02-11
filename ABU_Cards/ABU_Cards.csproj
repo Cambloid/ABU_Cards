@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="Cards\Base\ABUCardBase.cs" />
     <Compile Include="Cards\Base\CardCollector.cs" />
+    <Compile Include="Cards\CardGroup\Year2018\Card_009.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_007.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_008.cs" />
     <Compile Include="Cards\CardGroup\Year2018\Card_006.cs" />
