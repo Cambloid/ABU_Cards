@@ -39,9 +39,10 @@
             // 
             // pnlAnswer
             // 
-            this.pnlAnswer.Location = new System.Drawing.Point(273, 272);
+            this.pnlAnswer.Location = new System.Drawing.Point(182, 177);
+            this.pnlAnswer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlAnswer.Name = "pnlAnswer";
-            this.pnlAnswer.Size = new System.Drawing.Size(645, 208);
+            this.pnlAnswer.Size = new System.Drawing.Size(430, 135);
             this.pnlAnswer.TabIndex = 2;
             // 
             // lsvCards
@@ -54,13 +55,13 @@
             this.lsvCards.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
             this.lsvCards.FullRowSelect = true;
             this.lsvCards.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lsvCards.Location = new System.Drawing.Point(2, 100);
-            this.lsvCards.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lsvCards.Location = new System.Drawing.Point(1, 65);
             this.lsvCards.MouseLocation = new System.Drawing.Point(-1, -1);
             this.lsvCards.MouseState = MaterialSkin.MouseState.OUT;
+            this.lsvCards.MultiSelect = false;
             this.lsvCards.Name = "lsvCards";
             this.lsvCards.OwnerDraw = true;
-            this.lsvCards.Size = new System.Drawing.Size(264, 442);
+            this.lsvCards.Size = new System.Drawing.Size(176, 287);
             this.lsvCards.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.lsvCards.TabIndex = 6;
             this.lsvCards.UseCompatibleStateImageBehavior = false;
@@ -77,12 +78,12 @@
             this.btnSolution.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnSolution.Depth = 0;
             this.btnSolution.Icon = null;
-            this.btnSolution.Location = new System.Drawing.Point(273, 486);
-            this.btnSolution.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.btnSolution.Location = new System.Drawing.Point(182, 316);
+            this.btnSolution.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSolution.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSolution.Name = "btnSolution";
             this.btnSolution.Primary = false;
-            this.btnSolution.Size = new System.Drawing.Size(122, 36);
+            this.btnSolution.Size = new System.Drawing.Size(87, 36);
             this.btnSolution.TabIndex = 7;
             this.btnSolution.Text = "Solution";
             this.btnSolution.UseVisualStyleBackColor = true;
@@ -93,12 +94,12 @@
             this.btnCheck.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnCheck.Depth = 0;
             this.btnCheck.Icon = null;
-            this.btnCheck.Location = new System.Drawing.Point(728, 486);
-            this.btnCheck.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.btnCheck.Location = new System.Drawing.Point(485, 316);
+            this.btnCheck.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCheck.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Primary = false;
-            this.btnCheck.Size = new System.Drawing.Size(89, 36);
+            this.btnCheck.Size = new System.Drawing.Size(65, 36);
             this.btnCheck.TabIndex = 8;
             this.btnCheck.Text = "Check";
             this.btnCheck.UseVisualStyleBackColor = true;
@@ -109,11 +110,10 @@
             this.lblText.Depth = 0;
             this.lblText.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblText.Location = new System.Drawing.Point(274, 108);
-            this.lblText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblText.Location = new System.Drawing.Point(183, 70);
             this.lblText.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblText.Name = "lblText";
-            this.lblText.Size = new System.Drawing.Size(55, 27);
+            this.lblText.Size = new System.Drawing.Size(38, 19);
             this.lblText.TabIndex = 10;
             this.lblText.Text = "Text";
             // 
@@ -123,27 +123,27 @@
             this.btnNext.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnNext.Depth = 0;
             this.btnNext.Icon = null;
-            this.btnNext.Location = new System.Drawing.Point(836, 486);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnNext.Location = new System.Drawing.Point(557, 316);
             this.btnNext.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnNext.Name = "btnNext";
             this.btnNext.Primary = true;
-            this.btnNext.Size = new System.Drawing.Size(75, 36);
+            this.btnNext.Size = new System.Drawing.Size(55, 36);
             this.btnNext.TabIndex = 11;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
             // 
             // FrmMainView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(928, 545);
+            this.ClientSize = new System.Drawing.Size(619, 354);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.lblText);
             this.Controls.Add(this.lsvCards);
             this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.btnSolution);
             this.Controls.Add(this.pnlAnswer);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "FrmMainView";
             this.Text = "ABU Kärtchen";

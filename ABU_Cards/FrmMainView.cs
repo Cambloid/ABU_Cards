@@ -24,7 +24,7 @@ namespace ABU_Cards
         private Dictionary<ABUCardBase, Solution> userSuggestedSolution = null;
 
         private int currCardIndex = 0;
-        private bool initDone = false;
+        private bool enableLsvSelectionEvent = false;
 
         private MaterialSkinManager manager = null;
 
@@ -120,27 +120,9 @@ namespace ABU_Cards
         /// </summary>
         private void loadNextCard()
         {
-            //if (this.lsvCards.SelectedItems.Count == 0) {
-            //    this.lsvCards.Items[0].Selected = true;
-            //    return;
-            //}
-
-            this.presentCard(this.getCardByCardIndex(this.currCardIndex));
-
-            //if (this.lsvCards.SelectedItems.Count == 0) {
-            //    this.lsvCards.Items[0].Selected = true;
-            //    return;
-            //}
-
-            //int rowCount = this.lsvCards.Items.Count;
-            //int currLstIndex = this.lsvCards.SelectedItems[0].Index;
-            //if (currLstIndex >= rowCount - 1) {
-            //    this.lsvCards.Items[0].Selected = true;
-
-            //} else {
-            //    this.lsvCards.Items[++this.currCardIndex].Selected = true;
-
-            //}
+            this.currCardIndex = (this.currCardIndex % this.cards.CardCollection.Count()) + 1;
+            this.lsvCards.Items[this.currCardIndex - 1].Selected = true;
+            
         }
 
         /// <summary>
@@ -153,7 +135,7 @@ namespace ABU_Cards
             this.cards.CollectAllCards();
             this.fillCollections();
 
-            this.initDone = true;
+            this.enableLsvSelectionEvent = true;
 
             this.loadNextCard();
 
@@ -176,7 +158,7 @@ namespace ABU_Cards
         /// <param name="e"></param>
         private void lstCards_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            if (this.initDone)
+            if (this.enableLsvSelectionEvent)
             {
                 ListViewItem item = e.Item;
                 if (item != null && item.Tag != null)
@@ -218,7 +200,7 @@ namespace ABU_Cards
             {
                 Solution sol = this.getCardByCardIndex(this.currCardIndex).CorrectSolution();
                 string answer = sol.Answers[0]; // All Non Checkable answers should be a single string
-                MessageBox.Show(answer, "Lösung");
+                MessageBox.Show(this, answer, "Lösung");
             }
         }
         
