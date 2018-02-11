@@ -12,7 +12,7 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
     /// <summary>
     /// 
     /// </summary>
-    public class Card_003 : ABUCardBase
+    public class Card_007 : ABUCardBase
     {
         /// <summary>
         /// 
@@ -21,7 +21,7 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
         {
             get
             {
-                return 3; 
+                return 7; 
             }
         }
 
@@ -33,8 +33,11 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
         {
             StringBuilder build = new StringBuilder();
 
-            build.AppendLine("Volljährig ist, wer mindestens das _____");
-            build.AppendLine("Altersjahr erreicht hat");
+            build.AppendLine("Wer ist in der Schweiz rechtsfähig?");
+            build.AppendLine("a) Nur die Schweizer");
+            build.AppendLine("b) Alle Menschen");
+            build.AppendLine("c) Nur alle volljährigen Schweizer");
+            build.AppendLine("d) Alle Einwohner, ausser den Staatenlosen");
 
             return build.ToString();
         }
@@ -45,9 +48,20 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
         /// <returns></returns>
         public override Solution CorrectSolution() 
         {
-            return new Solution(new List<dynamic> { 18 });
+            return new Solution(new List<dynamic> { new bool[] { false, true, false, false}, new bool[] { true, false, true, true } });
         }
-        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override bool CanBeChecked
+        {
+            get
+            {
+                return true;
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -55,7 +69,7 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
         {
             get
             {
-                return new AnswerBox.IntegerOnly("Alter:"); 
+                return new AnswerBox.YesNoTable(new string[] { "a)", "b)", "c)", "d)" }); 
             }
         }
 

@@ -55,8 +55,6 @@ namespace ABU_Cards
         /// </summary>
         private void fillCollections()
         {
-
-
             string cardName = string.Empty;
             string cardIndex = string.Empty;
             ListViewItem item = null;
@@ -90,7 +88,9 @@ namespace ABU_Cards
             this.lblText.Text = string.Empty;
             this.lblText.Text = cardToPresent.Description();
             this.btnCheck.Enabled = cardToPresent.CanBeChecked;
+            this.Text = "ABU Kärtchen  (" + cardToPresent.CardIndex + ")";
             
+
             // Fill Globals
             this.currentAnswerBox = cardToPresent.CardAnswerBox;
             
@@ -99,6 +99,8 @@ namespace ABU_Cards
 
             // Load Last suggested Answer
             this.loadLastSuggestedUserAnswer(cardToPresent);
+
+            this.Refresh();
         }
 
         /// <summary>
@@ -118,13 +120,10 @@ namespace ABU_Cards
         /// </summary>
         private void loadNextCard()
         {
-            if(this.currCardIndex >= this.cards.CardCollection.Count)
-            {
-                this.currCardIndex = 1;
-            } else
-            {
-                this.currCardIndex++;
-            }
+            //if (this.lsvCards.SelectedItems.Count == 0) {
+            //    this.lsvCards.Items[0].Selected = true;
+            //    return;
+            //}
 
             this.presentCard(this.getCardByCardIndex(this.currCardIndex));
 
@@ -139,7 +138,7 @@ namespace ABU_Cards
             //    this.lsvCards.Items[0].Selected = true;
 
             //} else {
-            //    this.lsvCards.Items[currLstIndex + 1].Selected = true;
+            //    this.lsvCards.Items[++this.currCardIndex].Selected = true;
 
             //}
         }
@@ -211,7 +210,16 @@ namespace ABU_Cards
         /// <param name="e"></param>
         private void btnSolution_Click(object sender, EventArgs e)
         {
-            this.currentAnswerBox.Answer = this.getCardByCardIndex(this.currCardIndex).CorrectSolution();
+            ABUCardBase card = this.getCardByCardIndex(this.currCardIndex);
+            if (card.CanBeChecked)
+            {
+                this.currentAnswerBox.Answer = this.getCardByCardIndex(this.currCardIndex).CorrectSolution();
+            } else
+            {
+                Solution sol = this.getCardByCardIndex(this.currCardIndex).CorrectSolution();
+                string answer = sol.Answers[0]; // All Non Checkable answers should be a single string
+                MessageBox.Show(answer, "Lösung");
+            }
         }
         
         /// <summary>

@@ -12,7 +12,7 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
     /// <summary>
     /// 
     /// </summary>
-    public class Card_003 : ABUCardBase
+    public class Card_009 : ABUCardBase
     {
         /// <summary>
         /// 
@@ -21,7 +21,7 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
         {
             get
             {
-                return 3; 
+                return 9; 
             }
         }
 
@@ -33,8 +33,12 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
         {
             StringBuilder build = new StringBuilder();
 
-            build.AppendLine("Volljährig ist, wer mindestens das _____");
-            build.AppendLine("Altersjahr erreicht hat");
+            build.AppendLine("Die Rechtsfähigkeit ist:");
+
+            build.AppendLine("a) Die Fähigkeit zu machen, was ich will.");
+            build.AppendLine("b) Das Recht vor Gericht zu klagen.");
+            build.AppendLine("c) Die Fähigkeit, Rechte und Pflichten zu haben.");
+            build.AppendLine("d) Die Fähigkeit, Verträge zu unterschreiben.");
 
             return build.ToString();
         }
@@ -45,9 +49,20 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
         /// <returns></returns>
         public override Solution CorrectSolution() 
         {
-            return new Solution(new List<dynamic> { 18 });
+            return new Solution(new List<dynamic> { new bool[] { false, true, false, false}, new bool[] { true, false, true, true } });
         }
-        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override bool CanBeChecked
+        {
+            get
+            {
+                return true;
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -55,7 +70,7 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
         {
             get
             {
-                return new AnswerBox.IntegerOnly("Alter:"); 
+                return new AnswerBox.YesNoTable(new string[] { "a)", "b)", "c)", "d)" }); 
             }
         }
 

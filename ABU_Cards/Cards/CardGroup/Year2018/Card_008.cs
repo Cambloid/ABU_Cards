@@ -12,7 +12,7 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
     /// <summary>
     /// 
     /// </summary>
-    public class Card_003 : ABUCardBase
+    public class Card_008 : ABUCardBase
     {
         /// <summary>
         /// 
@@ -21,7 +21,7 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
         {
             get
             {
-                return 3; 
+                return 8; 
             }
         }
 
@@ -33,9 +33,9 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
         {
             StringBuilder build = new StringBuilder();
 
-            build.AppendLine("Volljährig ist, wer mindestens das _____");
-            build.AppendLine("Altersjahr erreicht hat");
-
+            build.AppendLine("Nennen Sie die zwei Voraussetzungen für die");
+            build.AppendLine("Handlungsfähigkeit.");
+           
             return build.ToString();
         }
 
@@ -45,9 +45,20 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
         /// <returns></returns>
         public override Solution CorrectSolution() 
         {
-            return new Solution(new List<dynamic> { 18 });
+            return new Solution(new List<dynamic> { "- Urteilsfähigkeit\r\n- Volljährigkeit / 18 Jahren" });
         }
-        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override bool CanBeChecked
+        {
+            get
+            {
+                return false;
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -55,7 +66,7 @@ namespace ABU_Cards.Cards.CardGroup.Year2018
         {
             get
             {
-                return new AnswerBox.IntegerOnly("Alter:"); 
+                return new AnswerBox.MultilineTextInput(); 
             }
         }
 

@@ -14,25 +14,16 @@ namespace ABU_Cards.AnswerBox
     /// <summary>
     /// 
     /// </summary>
-    public partial class IntegerOnly : UserControl, IAnswerBox
+    public partial class MultilineTextInput : UserControl, IAnswerBox
     {
         /// <summary>
         /// 
         /// </summary>
-        public IntegerOnly()
+        public MultilineTextInput()
         {
             InitializeComponent();
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public IntegerOnly(string text)
-        {
-            InitializeComponent();
-            this.lblText.Text = text;
-        }
-
+        
         /// <summary>
         /// 
         /// </summary>
@@ -40,11 +31,11 @@ namespace ABU_Cards.AnswerBox
         {
             get
             {
-                return new Solution(new List<dynamic> { this.convertIntFromString(this.txtInput.Text) });
+                return new Solution(new List<dynamic> { this.txtInput.Text });
             }
             set
             {
-                this.txtInput.Text   = value.Answers[0].ToString();
+                this.txtInput.Text   = value.Answers[0];
             }
         }
 
@@ -54,12 +45,7 @@ namespace ABU_Cards.AnswerBox
         /// <param name="correctSolution"></param>
         public void CheckAnswer(Solution correctSolution)
         {
-            if(correctSolution.Answers[0].Equals(this.Answer.Answers[0]))
-            {
-                picCheck.Image = new Bitmap(global::ABU_Cards.Properties.Resources.ic_check_black_48dp_1x);
-            } else {
-                picCheck.Image = new Bitmap(global::ABU_Cards.Properties.Resources.ic_close_black_48dp_1x);
-            }
+            return;
         }
 
         /// <summary>
@@ -70,26 +56,13 @@ namespace ABU_Cards.AnswerBox
         {
             return this;
         }
-
+               
         /// <summary>
         /// 
         /// </summary>
         public void ResetBox()
         {
             this.txtInput.Clear();
-        }
-
-        private int convertIntFromString(string input)
-        {
-            int result = 0;
-            try {
-                result = Convert.ToInt32(input);
-
-            } catch (Exception ex) {
-                Console.WriteLine(ex.ToString());
-
-            }
-            return result;
         }
 
     }
