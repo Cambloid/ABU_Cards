@@ -55,8 +55,6 @@ namespace ABU_Cards
         /// </summary>
         private void fillCollections()
         {
-
-
             string cardName = string.Empty;
             string cardIndex = string.Empty;
             ListViewItem item = null;
@@ -204,7 +202,16 @@ namespace ABU_Cards
         /// <param name="e"></param>
         private void btnSolution_Click(object sender, EventArgs e)
         {
-            this.currentAnswerBox.Answer = this.getCardByCardIndex(this.currCardIndex).CorrectSolution();
+            ABUCardBase card = this.getCardByCardIndex(this.currCardIndex);
+            if (card.CanBeChecked)
+            {
+                this.currentAnswerBox.Answer = this.getCardByCardIndex(this.currCardIndex).CorrectSolution();
+            } else
+            {
+                Solution sol = this.getCardByCardIndex(this.currCardIndex).CorrectSolution();
+                string answer = sol.Answers[0]; // All Non Checkable answers should be a single string
+                MessageBox.Show(answer, "Lösung");
+            }
         }
         
         /// <summary>
